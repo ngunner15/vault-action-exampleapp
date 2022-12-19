@@ -1,0 +1,9 @@
+﻿{
+  "agentId": 2,
+  "agentName": "vault-snapshot",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelines.actions.githubusercontent.com/19PO8IgMRJN0tAkCZs61tZDxn1FDDBORupLnITjRF3utpG1JH6",
+  "gitHubUrl": "https://github.com/ngunner15/vault-action-exampleapp",
+  "workFolder": "_work"
+}
