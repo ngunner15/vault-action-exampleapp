@@ -1,0 +1,4 @@
+[2022-12-20 00:42:28Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2022-12-20 00:42:28Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-20 00:42:28Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-20 00:42:28Z INFO HostContext] Well known config file 'Credentials': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\.credentials'

@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "ngunner15/vault-action-exampleapp",
+  "pipelineDirectory": "vault-action-exampleapp",
+  "workspaceDirectory": "vault-action-exampleapp\\vault-action-exampleapp",
+  "repositories": {
+    "ngunner15/vault-action-exampleapp": {
+      "repositoryPath": "vault-action-exampleapp\\vault-action-exampleapp",
+      "lastRunOn": "12/19/2022 14:51:05 -08:00"
+    }
+  },
+  "lastRunOn": "12/19/2022 14:51:05 -08:00"
+}

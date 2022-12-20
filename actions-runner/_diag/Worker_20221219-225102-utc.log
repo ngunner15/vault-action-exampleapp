@@ -1,0 +1,3836 @@
+[2022-12-19 22:51:02Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2022-12-19 22:51:02Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:02Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:02Z INFO HostContext] Well known config file 'Credentials': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\.credentials'
+[2022-12-19 22:51:03Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:03Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:03Z INFO HostContext] Well known config file 'Runner': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\.runner'
+[2022-12-19 22:51:03Z INFO Worker] Version: 2.299.1
+[2022-12-19 22:51:03Z INFO Worker] Commit: 2e44f985bd9bf890dc061e654f6a850c6f1249cf
+[2022-12-19 22:51:03Z INFO Worker] Culture: en-CA
+[2022-12-19 22:51:03Z INFO Worker] UI Culture: en-US
+[2022-12-19 22:51:03Z INFO Worker] Waiting to receive the job message from the channel.
+[2022-12-19 22:51:03Z INFO ProcessChannel] Receiving message of length 22210, with hash '73808faccfd50c768e8e1ec7d0e72131106307e678491be86f11867ed453e493'
+[2022-12-19 22:51:03Z INFO Worker] Message received.
+[2022-12-19 22:51:03Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/image-builder.yml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/checkout",
+        "ref": "v3",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "contextName": "__actions_checkout",
+      "condition": "success()",
+      "id": "a60052d4-79a0-5821-3eeb-84adb9872c5b",
+      "name": "__actions_checkout"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "hashicorp/vault-action",
+        "ref": "v2",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 9,
+        "col": 15,
+        "lit": "Import Secrets"
+      },
+      "contextName": "__hashicorp_vault-action",
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 12,
+        "col": 11,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 12,
+              "col": 11,
+              "lit": "url"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 12,
+              "col": 16,
+              "lit": "http://127.0.0.1:8200"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 13,
+              "col": 11,
+              "lit": "tlsSkipVerify"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 13,
+              "col": 26,
+              "lit": "true"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 14,
+              "col": 11,
+              "lit": "token"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 14,
+              "col": 18,
+              "expr": "secrets.VAULT_TOKEN"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 15,
+              "col": 11,
+              "lit": "secrets"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 15,
+              "col": 20,
+              "lit": "secret/data/ci app_secret\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "0c134453-1b3c-597f-9b43-d26a5693f23c",
+      "name": "__hashicorp_vault-action"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 17,
+        "col": 15,
+        "lit": "Build Docker Image"
+      },
+      "contextName": "__run",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 18,
+              "col": 14,
+              "expr": "format('docker build . --file Dockerfile --build-arg app_secret=\"{0}\" -t vault-action-exampleapp', env.APP_SECRET)"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "dd23db01-cff6-57a4-373a-5c8097a97333",
+      "name": "__run"
+    }
+  ],
+  "variables": {
+    "VAULT_TOKEN": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.isScheduled": {
+      "value": "False"
+    },
+    "system.servertype": {
+      "value": "Hosted"
+    },
+    "system.culture": {
+      "value": "en-US"
+    },
+    "system.pipelineStartTime": {
+      "value": "2022-12-19 22:50:57+00:00"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.EnableCompositeActions": {
+      "value": "true"
+    },
+    "DistributedTask.EnhancedAnnotations": {
+      "value": "true"
+    },
+    "DistributedTask.UploadStepSummary": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode12Action": {
+      "value": "true"
+    },
+    "DistributedTask.AllowRunnerContainerHooks": {
+      "value": "true"
+    },
+    "DistributedTask.DeprecateStepOutputCommands": {
+      "value": "true"
+    },
+    "system.teamProjectId": {
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    "build.buildId": {
+      "value": "1"
+    },
+    "build.containerId": {
+      "value": "3713544"
+    },
+    "system.workflowFilePath": {
+      "value": ".github/workflows/image-builder.yml"
+    },
+    "system.phaseDisplayName": {
+      "value": "build"
+    },
+    "system.phaseId": {
+      "value": "6884a131-87da-5381-61f3-d7acc3b91d76"
+    },
+    "system.phaseName": {
+      "value": "build"
+    },
+    "system.phaseAttempt": {
+      "value": "1"
+    },
+    "system.jobIdentifier": {
+      "value": "build.__default"
+    },
+    "system.jobAttempt": {
+      "value": "1"
+    },
+    "System.JobPositionInPhase": {
+      "value": "1"
+    },
+    "System.TotalJobsInPhase": {
+      "value": "1"
+    },
+    "system.github.job": {
+      "value": "build"
+    },
+    "system.jobDisplayName": {
+      "value": "build"
+    },
+    "system.jobId": {
+      "value": "ca395085-040a-526b-2ce8-bdc85f692774"
+    },
+    "system.jobName": {
+      "value": "__default"
+    },
+    "system.github.token.permissions": {
+      "value": "{\"Actions\":\"write\",\"Checks\":\"write\",\"Contents\":\"write\",\"Deployments\":\"write\",\"Discussions\":\"write\",\"Issues\":\"write\",\"Metadata\":\"read\",\"Packages\":\"write\",\"Pages\":\"write\",\"PullRequests\":\"write\",\"RepositoryProjects\":\"write\",\"SecurityEvents\":\"write\",\"Statuses\":\"write\"}"
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.runnerGroupName": {
+      "value": "Default"
+    }
+  },
+  "messageType": "PipelineAgentJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "Actions",
+    "version": 27,
+    "planId": "56f67802-2169-4c58-b005-b92a9e9978d4",
+    "planGroup": "Actions:00000000-0000-0000-0000-000000000000:1",
+    "artifactUri": "vstfs:///Build/Build/1",
+    "artifactLocation": null,
+    "definition": {
+      "_links": {},
+      "id": 3,
+      "name": "vault-action-exampleapp"
+    },
+    "owner": {
+      "_links": {},
+      "id": 3,
+      "name": "ngunner15"
+    }
+  },
+  "timeline": {
+    "id": "56f67802-2169-4c58-b005-b92a9e9978d4",
+    "changeId": 0,
+    "location": null
+  },
+  "jobId": "ca395085-040a-526b-2ce8-bdc85f692774",
+  "jobDisplayName": "build",
+  "jobName": "__default",
+  "requestId": 1,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "423efd42-e4a6-480c-8e94-e99a607b86d1",
+          "ServerName": "19PO8IgMRJN0tAkCZs61tZDxn1FDDBORupLnITjRF3utpG1JH6",
+          "CacheServerUrl": "https://artifactcache.actions.githubusercontent.com/19PO8IgMRJN0tAkCZs61tZDxn1FDDBORupLnITjRF3utpG1JH6/",
+          "FeedStreamUrl": "https://pipelines.actions.githubusercontent.com/19PO8IgMRJN0tAkCZs61tZDxn1FDDBORupLnITjRF3utpG1JH6/00000000-0000-0000-0000-000000000000/_apis/distributedtask/hubs/Actions/plans/56f67802-2169-4c58-b005-b92a9e9978d4/timelines/56f67802-2169-4c58-b005-b92a9e9978d4/records/ca395085-040a-526b-2ce8-bdc85f692774/feedstream?api-version=6.0-preview"
+        },
+        "name": "SystemVssConnection",
+        "url": "https://pipelines.actions.githubusercontent.com/19PO8IgMRJN0tAkCZs61tZDxn1FDDBORupLnITjRF3utpG1JH6/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": ***
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/main"
+        },
+        {
+          "k": "sha",
+          "v": "76599297bf0b51295cef27b79ec5b892ad14242a"
+        },
+        {
+          "k": "repository",
+          "v": "ngunner15/vault-action-exampleapp"
+        },
+        {
+          "k": "repository_owner",
+          "v": "ngunner15"
+        },
+        {
+          "k": "repository_owner_id",
+          "v": "31422051"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/ngunner15/vault-action-exampleapp.git"
+        },
+        {
+          "k": "run_id",
+          "v": "3735817914"
+        },
+        {
+          "k": "run_number",
+          "v": "1"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "run_attempt",
+          "v": "1"
+        },
+        {
+          "k": "artifact_cache_size_limit",
+          "v": "10"
+        },
+        {
+          "k": "repository_visibility",
+          "v": "public"
+        },
+        {
+          "k": "repository_id",
+          "v": "580168304"
+        },
+        {
+          "k": "actor_id",
+          "v": "31422051"
+        },
+        {
+          "k": "actor",
+          "v": "ngunner15"
+        },
+        {
+          "k": "triggering_actor",
+          "v": "ngunner15"
+        },
+        {
+          "k": "workflow",
+          "v": "ImageBuilder"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "76599297bf0b51295cef27b79ec5b892ad14242a"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "91b8ead180b1c796e5355ac042271c70b4b82bbd"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "Nisarg.Vadgama@gov.bc.ca"
+                              },
+                              {
+                                "k": "name",
+                                "v": "Nisarg Vadgama"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "Nisarg.Vadgama@gov.bc.ca"
+                              },
+                              {
+                                "k": "name",
+                                "v": "Nisarg Vadgama"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "76599297bf0b51295cef27b79ec5b892ad14242a"
+                        },
+                        {
+                          "k": "message",
+                          "v": "adds workflow to repo"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2022-12-19T14:50:17-08:00"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "f211377815e01224eb912d42a2054d7b2d6cd549"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/ngunner15/vault-action-exampleapp/commit/76599297bf0b51295cef27b79ec5b892ad14242a"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/ngunner15/vault-action-exampleapp/compare/91b8ead180b1...76599297bf0b"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "Nisarg.Vadgama@gov.bc.ca"
+                          },
+                          {
+                            "k": "name",
+                            "v": "Nisarg Vadgama"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "Nisarg.Vadgama@gov.bc.ca"
+                          },
+                          {
+                            "k": "name",
+                            "v": "Nisarg Vadgama"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "76599297bf0b51295cef27b79ec5b892ad14242a"
+                    },
+                    {
+                      "k": "message",
+                      "v": "adds workflow to repo"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2022-12-19T14:50:17-08:00"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "f211377815e01224eb912d42a2054d7b2d6cd549"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/ngunner15/vault-action-exampleapp/commit/76599297bf0b51295cef27b79ec5b892ad14242a"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "31422051+ngunner15@users.noreply.github.com"
+                    },
+                    {
+                      "k": "name",
+                      "v": "ngunner15"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/main"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "allow_forking",
+                      "v": true
+                    },
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/ngunner15/vault-action-exampleapp.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1671488065.0
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": null
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": false
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "ngunner15/vault-action-exampleapp"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/ngunner15/vault-action-exampleapp.git"
+                    },
+                    {
+                      "k": "has_discussions",
+                      "v": false
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": false
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": true
+                    },
+                    {
+                      "k": "homepage",
+                      "v": null
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/ngunner15/vault-action-exampleapp"
+                    },
+                    {
+                      "k": "id",
+                      "v": 580168304.0
+                    },
+                    {
+                      "k": "is_template",
+                      "v": false
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": "JavaScript"
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": null
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "vault-action-exampleapp"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "R_kgDOIpSqcA"
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/31422051?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": "31422051+ngunner15@users.noreply.github.com"
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/ngunner15/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/ngunner15/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/ngunner15/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/ngunner15/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/ngunner15"
+                          },
+                          {
+                            "k": "id",
+                            "v": 31422051.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "ngunner15"
+                          },
+                          {
+                            "k": "name",
+                            "v": "ngunner15"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "MDQ6VXNlcjMxNDIyMDUx"
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/ngunner15/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/ngunner15/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/ngunner15/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/ngunner15/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/ngunner15/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "User"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/ngunner15"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": false
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1671490252.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:ngunner15/vault-action-exampleapp.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/ngunner15/vault-action-exampleapp"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/teams"
+                    },
+                    {
+                      "k": "topics",
+                      "v": {
+                        "t": 1
+                      }
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/ngunner15/vault-action-exampleapp/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2022-12-19T22:47:03Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/ngunner15/vault-action-exampleapp"
+                    },
+                    {
+                      "k": "visibility",
+                      "v": "public"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "web_commit_signoff_required",
+                      "v": false
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/31422051?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/ngunner15/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/ngunner15/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/ngunner15/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/ngunner15/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/ngunner15"
+                    },
+                    {
+                      "k": "id",
+                      "v": 31422051.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "ngunner15"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "MDQ6VXNlcjMxNDIyMDUx"
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/ngunner15/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/ngunner15/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/ngunner15/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/ngunner15/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/ngunner15/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/ngunner15"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        },
+        {
+          "k": "ref_name",
+          "v": "main"
+        },
+        {
+          "k": "ref_protected",
+          "v": false
+        },
+        {
+          "k": "ref_type",
+          "v": "branch"
+        },
+        {
+          "k": "secret_source",
+          "v": "Actions"
+        },
+        {
+          "k": "workflow_ref",
+          "v": "ngunner15/vault-action-exampleapp/.github/workflows/image-builder.yml@refs/heads/main"
+        },
+        {
+          "k": "workflow_sha",
+          "v": "76599297bf0b51295cef27b79ec5b892ad14242a"
+        }
+      ]
+    },
+    "run-feature-flags": {
+      "t": 2,
+      "d": [
+        {
+          "k": "actions_use_results_service",
+          "v": false
+        }
+      ]
+    },
+    "partialrerun": false,
+    "needs": {
+      "t": 2
+    },
+    "vars": null,
+    "inputs": {
+      "t": 2
+    },
+    "matrix": null,
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 0.0
+        },
+        {
+          "k": "job-total",
+          "v": 1.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 1.0
+        }
+      ]
+    }
+  }
+}
+[2022-12-19 22:51:03Z INFO JobRunner] Job ID ca395085-040a-526b-2ce8-bdc85f692774
+[2022-12-19 22:51:03Z INFO JobRunner] Creating job server with URL: https://pipelines.actions.githubusercontent.com/19PO8IgMRJN0tAkCZs61tZDxn1FDDBORupLnITjRF3utpG1JH6/
+[2022-12-19 22:51:03Z INFO ConfigurationStore] currentAssemblyLocation: D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin\Runner.Worker.dll
+[2022-12-19 22:51:03Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:03Z INFO ConfigurationStore] binPath: D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin
+[2022-12-19 22:51:03Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:03Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:03Z INFO ConfigurationStore] RootFolder: D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner
+[2022-12-19 22:51:03Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:03Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:03Z INFO HostContext] Well known config file 'Runner': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\.runner'
+[2022-12-19 22:51:03Z INFO ConfigurationStore] ConfigFilePath: D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\.runner
+[2022-12-19 22:51:03Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:03Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:03Z INFO HostContext] Well known config file 'Credentials': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\.credentials'
+[2022-12-19 22:51:03Z INFO ConfigurationStore] CredFilePath: D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\.credentials
+[2022-12-19 22:51:03Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:03Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:03Z INFO HostContext] Well known config file 'MigratedCredentials': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\.credentials_migrated'
+[2022-12-19 22:51:03Z INFO ConfigurationStore] MigratedCredFilePath: D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\.credentials_migrated
+[2022-12-19 22:51:03Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:03Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:03Z INFO HostContext] Well known config file 'Service': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\.service'
+[2022-12-19 22:51:03Z INFO ConfigurationStore] ServiceConfigFilePath: D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\.service
+[2022-12-19 22:51:03Z INFO ConfigurationStore] Read setting file: 312 chars
+[2022-12-19 22:51:03Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2022-12-19 22:51:03Z INFO Worker] Listening for cancel message from the channel.
+[2022-12-19 22:51:03Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2022-12-19 22:51:05Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2022-12-19 22:51:05Z INFO JobServer] Creating websocket client ...wss://pipelines.actions.githubusercontent.com/19PO8IgMRJN0tAkCZs61tZDxn1FDDBORupLnITjRF3utpG1JH6/00000000-0000-0000-0000-000000000000/_apis/distributedtask/hubs/Actions/plans/56f67802-2169-4c58-b005-b92a9e9978d4/timelines/56f67802-2169-4c58-b005-b92a9e9978d4/records/ca395085-040a-526b-2ce8-bdc85f692774/feedstream?api-version=6.0-preview
+[2022-12-19 22:51:05Z INFO JobServer] Attempting to start websocket client with delay 00:00:00.
+[2022-12-19 22:51:05Z INFO JobServerQueue] Start process web console line queue.
+[2022-12-19 22:51:05Z INFO JobServerQueue] Start process file upload queue.
+[2022-12-19 22:51:05Z INFO JobServerQueue] Start process timeline update queue.
+[2022-12-19 22:51:05Z INFO ExecutionContext] Initialize GitHub context
+[2022-12-19 22:51:05Z INFO ExecutionContext] Initialize Env context
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Diag': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_diag'
+[2022-12-19 22:51:05Z INFO JobRunner] Starting the job execution context.
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:05Z INFO JobRunner] Validating directory permissions for: 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Tools': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_tool'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Temp': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_temp'
+[2022-12-19 22:51:05Z INFO JobRunner] Getting job extension.
+[2022-12-19 22:51:05Z INFO JobRunner] Initialize job. Getting all job steps.
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Diag': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_diag'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:05Z INFO HostContext] Well known config file 'Credentials': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\.credentials'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:05Z INFO HostContext] Well known config file 'SetupInfo': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\.setup_info'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:05Z INFO PipelineDirectoryManager] Loading tracking config if exists: D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_PipelineMapping\ngunner15/vault-action-exampleapp\PipelineFolder.json
+[2022-12-19 22:51:05Z INFO PipelineDirectoryManager] Creating a new tracking config file.
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:05Z INFO PipelineDirectoryManager] Creating pipeline directory.
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:05Z INFO PipelineDirectoryManager] Creating workspace directory.
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:05Z INFO JobExtension] Downloading actions
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Actions': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Actions': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:05Z INFO HostContext] Well known directory 'Actions': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions'
+[2022-12-19 22:51:05Z INFO ActionManager] Save archive 'https://api.github.com/repos/actions/checkout/zipball/755da8c3cf115ac066823e79a1e1788f8940201b' into D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions\_temp_021aa233-5c95-4884-8d33-f20f7e50bb7d\62aea991-436d-42c5-95c8-03814ae2d6ab.zip.
+[2022-12-19 22:51:05Z INFO JobServer] Successfully started websocket client.
+[2022-12-19 22:51:05Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e5ba1892-0a35-488e-bc46-0d2810a06250', success rate: 1/1.
+[2022-12-19 22:51:05Z INFO JobServerQueue] Job timeline record has been updated for the first time.
+[2022-12-19 22:51:06Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e5ba1892-0a35-488e-bc46-0d2810a06250', success rate: 1/1.
+[2022-12-19 22:51:07Z INFO ActionManager] Finished getting action repository.
+[2022-12-19 22:51:07Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:07Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:07Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:07Z INFO HostContext] Well known directory 'Actions': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions'
+[2022-12-19 22:51:07Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:07Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:07Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:07Z INFO HostContext] Well known directory 'Actions': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions'
+[2022-12-19 22:51:07Z INFO ActionManager] Save archive 'https://api.github.com/repos/hashicorp/vault-action/zipball/8fa61e909919a3f94952e9e07ace6b5a1114440b' into D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions\_temp_ba2de3f7-666f-4781-a0b1-9f54f20df9e4\868a02be-5761-413c-a2ff-df9f9a75f648.zip.
+[2022-12-19 22:51:07Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e5ba1892-0a35-488e-bc46-0d2810a06250', success rate: 1/1.
+[2022-12-19 22:51:09Z INFO ActionManager] Finished getting action repository.
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Actions': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions'
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Actions': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions'
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-12-19 22:51:09Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Actions': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions'
+[2022-12-19 22:51:09Z INFO ActionManager] Load action that reference repository from 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions\actions\checkout\v3'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Actions': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions'
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-12-19 22:51:09Z INFO ActionManager] Action pre node.js file: N/A.
+[2022-12-19 22:51:09Z INFO ActionManager] Action node.js file: dist/index.js.
+[2022-12-19 22:51:09Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Actions': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Actions': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions'
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Ignore action property branding.
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Vault Secrets",
+  "description": "A Github Action that allows you to consume HashiCorp Vault™ secrets as secure environment variables",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 4,
+          "col": 3,
+          "lit": "url"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 3,
+          "lit": "secrets"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 10,
+          "col": 3,
+          "lit": "namespace"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 13,
+          "col": 3,
+          "lit": "method"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 15,
+          "col": 14,
+          "lit": "token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 17,
+          "col": 3,
+          "lit": "role"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 20,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 23,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 26,
+          "col": 3,
+          "lit": "roleId"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 29,
+          "col": 3,
+          "lit": "secretId"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 32,
+          "col": 3,
+          "lit": "githubToken"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 35,
+          "col": 3,
+          "lit": "kubernetesTokenPath"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 38,
+          "col": 14,
+          "lit": "/var/run/secrets/kubernetes.io/serviceaccount/token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 39,
+          "col": 3,
+          "lit": "authPayload"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 42,
+          "col": 3,
+          "lit": "extraHeaders"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 45,
+          "col": 3,
+          "lit": "exportEnv"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 49,
+          "col": 3,
+          "lit": "exportToken"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 51,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 53,
+          "col": 3,
+          "lit": "caCertificate"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 56,
+          "col": 3,
+          "lit": "clientCertificate"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 59,
+          "col": 3,
+          "lit": "clientKey"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 62,
+          "col": 3,
+          "lit": "tlsSkipVerify"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 65,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 66,
+          "col": 3,
+          "lit": "jwtPrivateKey"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 69,
+          "col": 3,
+          "lit": "jwtKeyPassword"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 72,
+          "col": 3,
+          "lit": "jwtGithubAudience"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 75,
+          "col": 3,
+          "lit": "jwtTtl"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 78,
+          "col": 14,
+          "lit": "3600"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-12-19 22:51:09Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Actions': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions'
+[2022-12-19 22:51:09Z INFO ActionManager] Load action that reference repository from 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions\hashicorp\vault-action\v2'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Actions': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions'
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Ignore action property branding.
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Vault Secrets",
+  "description": "A Github Action that allows you to consume HashiCorp Vault™ secrets as secure environment variables",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 4,
+          "col": 3,
+          "lit": "url"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 3,
+          "lit": "secrets"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 10,
+          "col": 3,
+          "lit": "namespace"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 13,
+          "col": 3,
+          "lit": "method"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 15,
+          "col": 14,
+          "lit": "token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 17,
+          "col": 3,
+          "lit": "role"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 20,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 23,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 26,
+          "col": 3,
+          "lit": "roleId"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 29,
+          "col": 3,
+          "lit": "secretId"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 32,
+          "col": 3,
+          "lit": "githubToken"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 35,
+          "col": 3,
+          "lit": "kubernetesTokenPath"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 38,
+          "col": 14,
+          "lit": "/var/run/secrets/kubernetes.io/serviceaccount/token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 39,
+          "col": 3,
+          "lit": "authPayload"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 42,
+          "col": 3,
+          "lit": "extraHeaders"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 45,
+          "col": 3,
+          "lit": "exportEnv"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 49,
+          "col": 3,
+          "lit": "exportToken"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 51,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 53,
+          "col": 3,
+          "lit": "caCertificate"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 56,
+          "col": 3,
+          "lit": "clientCertificate"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 59,
+          "col": 3,
+          "lit": "clientKey"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 62,
+          "col": 3,
+          "lit": "tlsSkipVerify"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 65,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 66,
+          "col": 3,
+          "lit": "jwtPrivateKey"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 69,
+          "col": 3,
+          "lit": "jwtKeyPassword"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 72,
+          "col": 3,
+          "lit": "jwtGithubAudience"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 75,
+          "col": 3,
+          "lit": "jwtTtl"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 78,
+          "col": 14,
+          "lit": "3600"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-12-19 22:51:09Z INFO ActionManager] Action pre node.js file: N/A.
+[2022-12-19 22:51:09Z INFO ActionManager] Action node.js file: dist/index.js.
+[2022-12-19 22:51:09Z INFO ActionManager] Action post node.js file: N/A.
+[2022-12-19 22:51:09Z INFO JobExtension] Adding .
+[2022-12-19 22:51:09Z INFO JobExtension] Adding .
+[2022-12-19 22:51:09Z INFO JobExtension] Adding .
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Diag': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_diag'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Diag': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_diag'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Diag': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_diag'
+[2022-12-19 22:51:09Z INFO JobExtension] Total accessible running process: 356.
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:09Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "setup_job",
+  "type": "runner",
+  "stage": "Pre",
+  "stepId": "e5ba1892-0a35-488e-bc46-0d2810a06250",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 5,
+  "startTime": "2022-12-19T22:51:05.2459975Z",
+  "finishTime": "2022-12-19T22:51:09.8896129Z"
+}.
+[2022-12-19 22:51:09Z INFO JobRunner] Total job steps: 3.
+[2022-12-19 22:51:09Z INFO JobRunner] Run all job steps.
+[2022-12-19 22:51:09Z INFO StepsRunner] Processing step: DisplayName='Run actions/checkout@v3'
+[2022-12-19 22:51:09Z INFO StepsRunner] Evaluating: success()
+[2022-12-19 22:51:09Z INFO StepsRunner] Result: true
+[2022-12-19 22:51:09Z INFO StepsRunner] Starting the step.
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:09Z INFO StepsRunner] Which: 'chcp'
+[2022-12-19 22:51:09Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2022-12-19 22:51:09Z INFO ProcessInvokerWrapper] Starting process:
+[2022-12-19 22:51:09Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2022-12-19 22:51:09Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2022-12-19 22:51:09Z INFO ProcessInvokerWrapper]   Working directory: 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:09Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-12-19 22:51:09Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-12-19 22:51:09Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-12-19 22:51:09Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-12-19 22:51:09Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2022-12-19 22:51:09Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-12-19 22:51:09Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-12-19 22:51:09Z INFO ProcessInvokerWrapper] Process started with process id 20120, waiting for process exit.
+[2022-12-19 22:51:09Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-12-19 22:51:09Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-12-19 22:51:09Z INFO ProcessInvokerWrapper] Finished process 20120 with exit code 0, and elapsed time 00:00:00.0298545.
+[2022-12-19 22:51:09Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Actions': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions'
+[2022-12-19 22:51:09Z INFO ActionManager] Load action that reference repository from 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions\actions\checkout\v3'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Actions': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions'
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-12-19 22:51:09Z INFO ActionManager] Action pre node.js file: N/A.
+[2022-12-19 22:51:09Z INFO ActionManager] Action node.js file: dist/index.js.
+[2022-12-19 22:51:09Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2022-12-19 22:51:09Z INFO ExecutionContext] Reserve record order 5 to 8 for post job actions.
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Diag': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_diag'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Temp': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_temp'
+[2022-12-19 22:51:09Z INFO ExecutionContext] Write event payload to D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_temp\_github_workflow\event.json
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:09Z INFO HostContext] Well known directory 'Temp': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_temp'
+[2022-12-19 22:51:09Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2022-12-19 22:51:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker
+[2022-12-19 22:51:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker
+[2022-12-19 22:51:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.CreateStepSummaryCommand, Runner.Worker
+[2022-12-19 22:51:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateFileCommand, Runner.Worker
+[2022-12-19 22:51:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputFileCommand, Runner.Worker
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "ngunner15/vault-action-exampleapp"
+}
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 50,
+  "col": 14,
+  "lit": "true"
+}
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 55,
+  "col": 14,
+  "lit": "true"
+}
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 58,
+  "col": 14,
+  "lit": "1"
+}
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 61,
+  "col": 14,
+  "lit": "false"
+}
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 70,
+  "col": 14,
+  "lit": "false"
+}
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2022-12-19 22:51:09Z INFO ActionManifestManager] Input 'github-server-url': default value evaluate result: ""
+[2022-12-19 22:51:09Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2022-12-19 22:51:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.InternalPluginSetRepoPathCommandExtension, Runner.Worker
+[2022-12-19 22:51:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvCommandExtension, Runner.Worker
+[2022-12-19 22:51:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputCommandExtension, Runner.Worker
+[2022-12-19 22:51:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateCommandExtension, Runner.Worker
+[2022-12-19 22:51:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathCommandExtension, Runner.Worker
+[2022-12-19 22:51:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMaskCommandExtension, Runner.Worker
+[2022-12-19 22:51:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMatcherCommandExtension, Runner.Worker
+[2022-12-19 22:51:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.RemoveMatcherCommandExtension, Runner.Worker
+[2022-12-19 22:51:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.WarningCommandExtension, Runner.Worker
+[2022-12-19 22:51:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ErrorCommandExtension, Runner.Worker
+[2022-12-19 22:51:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.NoticeCommandExtension, Runner.Worker
+[2022-12-19 22:51:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.DebugCommandExtension, Runner.Worker
+[2022-12-19 22:51:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.GroupCommandExtension, Runner.Worker
+[2022-12-19 22:51:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EndGroupCommandExtension, Runner.Worker
+[2022-12-19 22:51:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EchoCommandExtension, Runner.Worker
+[2022-12-19 22:51:09Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2022-12-19 22:51:09Z INFO ActionCommandManager] Register action command extension for command set-env
+[2022-12-19 22:51:09Z INFO ActionCommandManager] Register action command extension for command set-output
+[2022-12-19 22:51:09Z INFO ActionCommandManager] Register action command extension for command save-state
+[2022-12-19 22:51:09Z INFO ActionCommandManager] Register action command extension for command add-path
+[2022-12-19 22:51:09Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2022-12-19 22:51:09Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2022-12-19 22:51:09Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2022-12-19 22:51:09Z INFO ActionCommandManager] Register action command extension for command warning
+[2022-12-19 22:51:09Z INFO ActionCommandManager] Register action command extension for command error
+[2022-12-19 22:51:09Z INFO ActionCommandManager] Register action command extension for command notice
+[2022-12-19 22:51:09Z INFO ActionCommandManager] Register action command extension for command debug
+[2022-12-19 22:51:09Z INFO ActionCommandManager] Register action command extension for command group
+[2022-12-19 22:51:09Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2022-12-19 22:51:09Z INFO ActionCommandManager] Register action command extension for command echo
+[2022-12-19 22:51:10Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:10Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:10Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:10Z INFO HostContext] Well known directory 'Externals': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\externals'
+[2022-12-19 22:51:10Z INFO ProcessInvokerWrapper] Starting process:
+[2022-12-19 22:51:10Z INFO ProcessInvokerWrapper]   File name: 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\externals\node16\bin\node.exe'
+[2022-12-19 22:51:10Z INFO ProcessInvokerWrapper]   Arguments: '"D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions\actions\checkout\v3\dist/index.js"'
+[2022-12-19 22:51:10Z INFO ProcessInvokerWrapper]   Working directory: 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\vault-action-exampleapp\vault-action-exampleapp'
+[2022-12-19 22:51:10Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-12-19 22:51:10Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2022-12-19 22:51:10Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-12-19 22:51:10Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-12-19 22:51:10Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2022-12-19 22:51:10Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-12-19 22:51:10Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-12-19 22:51:10Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2022-12-19 22:51:11Z INFO ProcessInvokerWrapper] Process started with process id 20160, waiting for process exit.
+[2022-12-19 22:51:15Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:15Z INFO AddMaskCommandExtension] Add new secret mask with length of 76
+[2022-12-19 22:51:15Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:16Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:17Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:17Z INFO JobServerQueue] Try to append 3 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 3/3.
+[2022-12-19 22:51:18Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:19Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:19Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:19Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:19Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:20Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:22Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:23Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:24Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:25Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:26Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:27Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:27Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:27Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:28Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:28Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:28Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:29Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:29Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:29Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:29Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:29Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:30Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:31Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper] Finished process 20160 with exit code 0, and elapsed time 00:00:21.3859307.
+[2022-12-19 22:51:31Z INFO CreateStepSummaryCommand] Step Summary file (D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_temp\_runner_file_commands\step_summary_148c1240-3916-4f19-b4e5-95a55cca713b) is empty; skipping attachment upload
+[2022-12-19 22:51:31Z INFO StepsRunner] Step result: 
+[2022-12-19 22:51:31Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v3",
+  "type": "node16",
+  "stage": "Main",
+  "stepId": "a60052d4-79a0-5821-3eeb-84adb9872c5b",
+  "stepContextName": "__actions_checkout",
+  "hasPreStep": false,
+  "hasPostStep": true,
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 22,
+  "startTime": "2022-12-19T22:51:09.9050188Z",
+  "finishTime": "2022-12-19T22:51:31.4100985Z"
+}.
+[2022-12-19 22:51:31Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2022-12-19 22:51:31Z INFO StepsRunner] Current state: job state = ''
+[2022-12-19 22:51:31Z INFO StepsRunner] Processing step: DisplayName='Import Secrets'
+[2022-12-19 22:51:31Z INFO StepsRunner] Evaluating: success()
+[2022-12-19 22:51:31Z INFO StepsRunner] Result: true
+[2022-12-19 22:51:31Z INFO StepsRunner] Starting the step.
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:31Z INFO StepsRunner] Which: 'chcp'
+[2022-12-19 22:51:31Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper] Starting process:
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Working directory: 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper] Process started with process id 13028, waiting for process exit.
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper] Finished process 13028 with exit code 0, and elapsed time 00:00:00.0109289.
+[2022-12-19 22:51:31Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Actions': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions'
+[2022-12-19 22:51:31Z INFO ActionManager] Load action that reference repository from 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions\hashicorp\vault-action\v2'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Actions': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions'
+[2022-12-19 22:51:31Z INFO ActionManifestManager] Ignore action property branding.
+[2022-12-19 22:51:31Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Vault Secrets",
+  "description": "A Github Action that allows you to consume HashiCorp Vault™ secrets as secure environment variables",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 4,
+          "col": 3,
+          "lit": "url"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 3,
+          "lit": "secrets"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 10,
+          "col": 3,
+          "lit": "namespace"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 13,
+          "col": 3,
+          "lit": "method"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 15,
+          "col": 14,
+          "lit": "token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 17,
+          "col": 3,
+          "lit": "role"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 20,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 23,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 26,
+          "col": 3,
+          "lit": "roleId"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 29,
+          "col": 3,
+          "lit": "secretId"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 32,
+          "col": 3,
+          "lit": "githubToken"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 35,
+          "col": 3,
+          "lit": "kubernetesTokenPath"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 38,
+          "col": 14,
+          "lit": "/var/run/secrets/kubernetes.io/serviceaccount/token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 39,
+          "col": 3,
+          "lit": "authPayload"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 42,
+          "col": 3,
+          "lit": "extraHeaders"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 45,
+          "col": 3,
+          "lit": "exportEnv"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 49,
+          "col": 3,
+          "lit": "exportToken"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 51,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 53,
+          "col": 3,
+          "lit": "caCertificate"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 56,
+          "col": 3,
+          "lit": "clientCertificate"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 59,
+          "col": 3,
+          "lit": "clientKey"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 62,
+          "col": 3,
+          "lit": "tlsSkipVerify"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 65,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 66,
+          "col": 3,
+          "lit": "jwtPrivateKey"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 69,
+          "col": 3,
+          "lit": "jwtKeyPassword"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 72,
+          "col": 3,
+          "lit": "jwtGithubAudience"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 75,
+          "col": 3,
+          "lit": "jwtTtl"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 78,
+          "col": 14,
+          "lit": "3600"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-12-19 22:51:31Z INFO ActionManager] Action pre node.js file: N/A.
+[2022-12-19 22:51:31Z INFO ActionManager] Action node.js file: dist/index.js.
+[2022-12-19 22:51:31Z INFO ActionManager] Action post node.js file: N/A.
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Temp': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_temp'
+[2022-12-19 22:51:31Z INFO ExecutionContext] Write event payload to D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_temp\_github_workflow\event.json
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Temp': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_temp'
+[2022-12-19 22:51:31Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2022-12-19 22:51:31Z INFO ActionManifestManager] Input 'namespace': default value evaluate result: ""
+[2022-12-19 22:51:31Z INFO ActionManifestManager] Input 'method': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 15,
+  "col": 14,
+  "lit": "token"
+}
+[2022-12-19 22:51:31Z INFO ActionManifestManager] Input 'role': default value evaluate result: ""
+[2022-12-19 22:51:31Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2022-12-19 22:51:31Z INFO ActionManifestManager] Input 'roleId': default value evaluate result: ""
+[2022-12-19 22:51:31Z INFO ActionManifestManager] Input 'secretId': default value evaluate result: ""
+[2022-12-19 22:51:31Z INFO ActionManifestManager] Input 'githubToken': default value evaluate result: ""
+[2022-12-19 22:51:31Z INFO ActionManifestManager] Input 'kubernetesTokenPath': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 38,
+  "col": 14,
+  "lit": "/var/run/secrets/kubernetes.io/serviceaccount/token"
+}
+[2022-12-19 22:51:31Z INFO ActionManifestManager] Input 'authPayload': default value evaluate result: ""
+[2022-12-19 22:51:31Z INFO ActionManifestManager] Input 'extraHeaders': default value evaluate result: ""
+[2022-12-19 22:51:31Z INFO ActionManifestManager] Input 'exportEnv': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2022-12-19 22:51:31Z INFO ActionManifestManager] Input 'exportToken': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 51,
+  "col": 14,
+  "lit": "false"
+}
+[2022-12-19 22:51:31Z INFO ActionManifestManager] Input 'caCertificate': default value evaluate result: ""
+[2022-12-19 22:51:31Z INFO ActionManifestManager] Input 'clientCertificate': default value evaluate result: ""
+[2022-12-19 22:51:31Z INFO ActionManifestManager] Input 'clientKey': default value evaluate result: ""
+[2022-12-19 22:51:31Z INFO ActionManifestManager] Input 'jwtPrivateKey': default value evaluate result: ""
+[2022-12-19 22:51:31Z INFO ActionManifestManager] Input 'jwtKeyPassword': default value evaluate result: ""
+[2022-12-19 22:51:31Z INFO ActionManifestManager] Input 'jwtGithubAudience': default value evaluate result: ""
+[2022-12-19 22:51:31Z INFO ActionManifestManager] Input 'jwtTtl': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 78,
+  "col": 14,
+  "lit": "3600"
+}
+[2022-12-19 22:51:31Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command set-env
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command set-output
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command save-state
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command add-path
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command warning
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command error
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command notice
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command debug
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command group
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command echo
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Externals': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\externals'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper] Starting process:
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   File name: 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\externals\node16\bin\node.exe'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Arguments: '"D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions\hashicorp\vault-action\v2\dist/index.js"'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Working directory: 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\vault-action-exampleapp\vault-action-exampleapp'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper] Process started with process id 19272, waiting for process exit.
+[2022-12-19 22:51:31Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2022-12-19 22:51:31Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0c134453-1b3c-597f-9b43-d26a5693f23c', success rate: 1/1.
+[2022-12-19 22:51:31Z INFO AddMaskCommandExtension] Add new secret mask with length of 21
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper] Finished process 19272 with exit code 0, and elapsed time 00:00:00.3492774.
+[2022-12-19 22:51:31Z INFO CreateStepSummaryCommand] Step Summary file (D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_temp\_runner_file_commands\step_summary_d69c2473-f179-4df5-b40f-4478df6a2da2) is empty; skipping attachment upload
+[2022-12-19 22:51:31Z INFO StepsRunner] Step result: 
+[2022-12-19 22:51:31Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "hashicorp/vault-action",
+  "ref": "v2",
+  "type": "node16",
+  "stage": "Main",
+  "stepId": "0c134453-1b3c-597f-9b43-d26a5693f23c",
+  "stepContextName": "__hashicorp_vault-action",
+  "hasPreStep": false,
+  "hasPostStep": false,
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2022-12-19T22:51:31.4106125Z",
+  "finishTime": "2022-12-19T22:51:31.7865378Z"
+}.
+[2022-12-19 22:51:31Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2022-12-19 22:51:31Z INFO StepsRunner] Current state: job state = ''
+[2022-12-19 22:51:31Z INFO StepsRunner] Processing step: DisplayName='Build Docker Image'
+[2022-12-19 22:51:31Z INFO StepsRunner] Evaluating: success()
+[2022-12-19 22:51:31Z INFO StepsRunner] Result: true
+[2022-12-19 22:51:31Z INFO StepsRunner] Starting the step.
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:31Z INFO StepsRunner] Which: 'chcp'
+[2022-12-19 22:51:31Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper] Starting process:
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Working directory: 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper] Process started with process id 19724, waiting for process exit.
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper] Finished process 19724 with exit code 0, and elapsed time 00:00:00.0128641.
+[2022-12-19 22:51:31Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Temp': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_temp'
+[2022-12-19 22:51:31Z INFO ExecutionContext] Write event payload to D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_temp\_github_workflow\event.json
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Temp': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_temp'
+[2022-12-19 22:51:31Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2022-12-19 22:51:31Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command set-env
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command set-output
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command save-state
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command add-path
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command warning
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command error
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command notice
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command debug
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command group
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2022-12-19 22:51:31Z INFO ActionCommandManager] Register action command extension for command echo
+[2022-12-19 22:51:31Z INFO ScriptHandler] Which: 'pwsh'
+[2022-12-19 22:51:31Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2022-12-19 22:51:31Z INFO ScriptHandler] Defaulting to powershell
+[2022-12-19 22:51:31Z INFO ScriptHandler] Which: 'powershell'
+[2022-12-19 22:51:31Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:31Z INFO HostContext] Well known directory 'Temp': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_temp'
+[2022-12-19 22:51:31Z INFO ScriptHandler] Which: 'pwsh'
+[2022-12-19 22:51:31Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2022-12-19 22:51:31Z INFO ScriptHandler] Defaulting to powershell
+[2022-12-19 22:51:31Z INFO ScriptHandler] Which: 'powershell'
+[2022-12-19 22:51:31Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper] Starting process:
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_temp\148935a9-469f-45a5-b5a6-3f3f2ca1f257.ps1'"'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Working directory: 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\vault-action-exampleapp\vault-action-exampleapp'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-12-19 22:51:31Z INFO ProcessInvokerWrapper] Process started with process id 16516, waiting for process exit.
+[2022-12-19 22:51:32Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0c134453-1b3c-597f-9b43-d26a5693f23c', success rate: 1/1.
+[2022-12-19 22:51:32Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'dd23db01-cff6-57a4-373a-5c8097a97333', success rate: 1/1.
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper] Finished process 16516 with exit code 1, and elapsed time 00:00:00.4223311.
+[2022-12-19 22:51:32Z INFO CreateStepSummaryCommand] Step Summary file (D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_temp\_runner_file_commands\step_summary_5ca93ab9-6a8f-4055-b52f-e4d758874f8d) is empty; skipping attachment upload
+[2022-12-19 22:51:32Z INFO StepsRunner] Step result: Failed
+[2022-12-19 22:51:32Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "dd23db01-cff6-57a4-373a-5c8097a97333",
+  "stepContextName": "__run",
+  "result": "failed",
+  "errorMessages": [
+    "Process completed with exit code 1."
+  ],
+  "executionTimeInSeconds": 1,
+  "startTime": "2022-12-19T22:51:31.7872124Z",
+  "finishTime": "2022-12-19T22:51:32.2639265Z"
+}.
+[2022-12-19 22:51:32Z INFO StepsRunner] Update job result with current step result 'Failed'.
+[2022-12-19 22:51:32Z INFO StepsRunner] Current state: job state = 'Failed'
+[2022-12-19 22:51:32Z INFO StepsRunner] Processing step: DisplayName='Post Run actions/checkout@v3'
+[2022-12-19 22:51:32Z INFO StepsRunner] Evaluating: always()
+[2022-12-19 22:51:32Z INFO StepsRunner] Result: true
+[2022-12-19 22:51:32Z INFO StepsRunner] Starting the step.
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:32Z INFO StepsRunner] Which: 'chcp'
+[2022-12-19 22:51:32Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'dd23db01-cff6-57a4-373a-5c8097a97333', success rate: 1/1.
+[2022-12-19 22:51:32Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper] Starting process:
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper]   Working directory: 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper] Process started with process id 10484, waiting for process exit.
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper] Finished process 10484 with exit code 0, and elapsed time 00:00:00.0109048.
+[2022-12-19 22:51:32Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Actions': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions'
+[2022-12-19 22:51:32Z INFO ActionManager] Load action that reference repository from 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions\actions\checkout\v3'
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Actions': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions'
+[2022-12-19 22:51:32Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2022-12-19 22:51:32Z INFO ActionManager] Action pre node.js file: N/A.
+[2022-12-19 22:51:32Z INFO ActionManager] Action node.js file: dist/index.js.
+[2022-12-19 22:51:32Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Temp': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_temp'
+[2022-12-19 22:51:32Z INFO ExecutionContext] Write event payload to D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_temp\_github_workflow\event.json
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Work': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work'
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Temp': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_temp'
+[2022-12-19 22:51:32Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2022-12-19 22:51:32Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "ngunner15/vault-action-exampleapp"
+}
+[2022-12-19 22:51:32Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2022-12-19 22:51:32Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2022-12-19 22:51:32Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2022-12-19 22:51:32Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2022-12-19 22:51:32Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2022-12-19 22:51:32Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 50,
+  "col": 14,
+  "lit": "true"
+}
+[2022-12-19 22:51:32Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2022-12-19 22:51:32Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 55,
+  "col": 14,
+  "lit": "true"
+}
+[2022-12-19 22:51:32Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 58,
+  "col": 14,
+  "lit": "1"
+}
+[2022-12-19 22:51:32Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 61,
+  "col": 14,
+  "lit": "false"
+}
+[2022-12-19 22:51:32Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 70,
+  "col": 14,
+  "lit": "false"
+}
+[2022-12-19 22:51:32Z INFO ActionManifestManager] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2022-12-19 22:51:32Z INFO ActionManifestManager] Input 'github-server-url': default value evaluate result: ""
+[2022-12-19 22:51:32Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2022-12-19 22:51:32Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2022-12-19 22:51:32Z INFO ActionCommandManager] Register action command extension for command set-env
+[2022-12-19 22:51:32Z INFO ActionCommandManager] Register action command extension for command set-output
+[2022-12-19 22:51:32Z INFO ActionCommandManager] Register action command extension for command save-state
+[2022-12-19 22:51:32Z INFO ActionCommandManager] Register action command extension for command add-path
+[2022-12-19 22:51:32Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2022-12-19 22:51:32Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2022-12-19 22:51:32Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2022-12-19 22:51:32Z INFO ActionCommandManager] Register action command extension for command warning
+[2022-12-19 22:51:32Z INFO ActionCommandManager] Register action command extension for command error
+[2022-12-19 22:51:32Z INFO ActionCommandManager] Register action command extension for command notice
+[2022-12-19 22:51:32Z INFO ActionCommandManager] Register action command extension for command debug
+[2022-12-19 22:51:32Z INFO ActionCommandManager] Register action command extension for command group
+[2022-12-19 22:51:32Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2022-12-19 22:51:32Z INFO ActionCommandManager] Register action command extension for command echo
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:32Z INFO HostContext] Well known directory 'Externals': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\externals'
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper] Starting process:
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper]   File name: 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\externals\node16\bin\node.exe'
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper]   Arguments: '"D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_actions\actions\checkout\v3\dist/index.js"'
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper]   Working directory: 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\vault-action-exampleapp\vault-action-exampleapp'
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2022-12-19 22:51:32Z INFO ProcessInvokerWrapper] Process started with process id 24132, waiting for process exit.
+[2022-12-19 22:51:32Z INFO JobServerQueue] Try to append 1 batches web console lines for record '7ca88c53-9de9-4e04-a1ba-b79fd9845a0b', success rate: 1/1.
+[2022-12-19 22:51:32Z INFO JobServerQueue] Try to upload 2 log files or attachments, success rate: 2/2.
+[2022-12-19 22:51:34Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2022-12-19 22:51:34Z INFO JobServerQueue] Try to append 1 batches web console lines for record '7ca88c53-9de9-4e04-a1ba-b79fd9845a0b', success rate: 1/1.
+[2022-12-19 22:51:34Z INFO AddMaskCommandExtension] Add new secret mask with length of 32
+[2022-12-19 22:51:35Z INFO JobServerQueue] Try to append 1 batches web console lines for record '7ca88c53-9de9-4e04-a1ba-b79fd9845a0b', success rate: 1/1.
+[2022-12-19 22:51:35Z INFO JobServerQueue] Try to append 1 batches web console lines for record '7ca88c53-9de9-4e04-a1ba-b79fd9845a0b', success rate: 1/1.
+[2022-12-19 22:51:36Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-12-19 22:51:36Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-12-19 22:51:36Z INFO ProcessInvokerWrapper] Finished process 24132 with exit code 0, and elapsed time 00:00:04.3516575.
+[2022-12-19 22:51:36Z INFO CreateStepSummaryCommand] Step Summary file (D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_temp\_runner_file_commands\step_summary_fc01e153-7384-47e5-896b-36d8a0016b7c) is empty; skipping attachment upload
+[2022-12-19 22:51:36Z INFO StepsRunner] Step result: 
+[2022-12-19 22:51:36Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v3",
+  "type": "node16",
+  "stage": "Post",
+  "stepId": "7ca88c53-9de9-4e04-a1ba-b79fd9845a0b",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 5,
+  "startTime": "2022-12-19T22:51:32.2646407Z",
+  "finishTime": "2022-12-19T22:51:36.6380642Z"
+}.
+[2022-12-19 22:51:36Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2022-12-19 22:51:36Z INFO StepsRunner] Current state: job state = 'Failed'
+[2022-12-19 22:51:36Z INFO JobRunner] Finalize job.
+[2022-12-19 22:51:36Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:36Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:36Z INFO HostContext] Well known directory 'Diag': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_diag'
+[2022-12-19 22:51:36Z INFO JobExtension] Initialize Env context
+[2022-12-19 22:51:36Z INFO JobExtension] Initialize steps context
+[2022-12-19 22:51:36Z INFO JobExtension] Total accessible running process: 359.
+[2022-12-19 22:51:36Z INFO JobExtension] Inspecting process environment variables. PID: 13672 (audiodg)
+[2022-12-19 22:51:36Z INFO JobExtension] Inspecting process environment variables. PID: 18944 (svchost)
+[2022-12-19 22:51:36Z WARN JobExtension] Ignore exception during read process environment variables: Access is denied.
+[2022-12-19 22:51:36Z INFO JobServerQueue] Try to append 1 batches web console lines for record '80f481e2-9e18-4330-adc6-87a8aedc2046', success rate: 1/1.
+[2022-12-19 22:51:36Z INFO JobExtension] Inspecting process environment variables. PID: 1968 (backgroundTaskHost)
+[2022-12-19 22:51:36Z INFO JobExtension] Inspecting process environment variables. PID: 9048 (svchost)
+[2022-12-19 22:51:36Z INFO JobExtension] Inspecting process environment variables. PID: 18316 (WmiApSrv)
+[2022-12-19 22:51:36Z INFO JobExtension] Inspecting process environment variables. PID: 6688 (svchost)
+[2022-12-19 22:51:36Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "complete_job",
+  "type": "runner",
+  "stage": "Post",
+  "stepId": "80f481e2-9e18-4330-adc6-87a8aedc2046",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2022-12-19T22:51:36.6460595Z",
+  "finishTime": "2022-12-19T22:51:36.842205Z"
+}.
+[2022-12-19 22:51:36Z INFO JobRunner] Job result after all job steps finish: Failed
+[2022-12-19 22:51:36Z INFO JobRunner] Completing the job execution context.
+[2022-12-19 22:51:36Z INFO JobRunner] Shutting down the job server queue.
+[2022-12-19 22:51:36Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2022-12-19 22:51:37Z INFO JobServerQueue] All queue process task stopped.
+[2022-12-19 22:51:37Z INFO JobServerQueue] Web console line queue drained.
+[2022-12-19 22:51:37Z INFO JobServerQueue] Uploading 3 files in one shot.
+[2022-12-19 22:51:38Z INFO JobServerQueue] Try to upload 3 log files or attachments, success rate: 3/3.
+[2022-12-19 22:51:38Z INFO JobServerQueue] File upload queue drained.
+[2022-12-19 22:51:38Z INFO JobServerQueue] Timeline update queue drained.
+[2022-12-19 22:51:38Z INFO JobServerQueue] Disposing job server ...
+[2022-12-19 22:51:38Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2022-12-19 22:51:38Z INFO TempDirectoryManager] Cleaning runner temp folder: D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_work\_temp
+[2022-12-19 22:51:38Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:38Z INFO HostContext] Well known directory 'Root': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner'
+[2022-12-19 22:51:38Z INFO HostContext] Well known directory 'Diag': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_diag'
+[2022-12-19 22:51:38Z INFO HostContext] Well known config file 'Telemetry': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\_diag\.telemetry'
+[2022-12-19 22:51:38Z INFO JobRunner] Raising job completed event
+[2022-12-19 22:51:38Z INFO Worker] Job completed.

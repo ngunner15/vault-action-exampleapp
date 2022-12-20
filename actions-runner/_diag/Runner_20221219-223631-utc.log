@@ -115,3 +115,55 @@
 [2022-12-19 22:36:34Z INFO Terminal] WRITE LINE: Current runner version: '2.299.1'
 [2022-12-19 22:36:34Z INFO Terminal] WRITE LINE: 2022-12-19 22:36:34Z: Listening for Jobs
 [2022-12-19 22:36:34Z INFO JobDispatcher] Set runner/worker IPC timeout to 30 seconds.
+[2022-12-19 22:51:00Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\.credentials_rsaparams
+[2022-12-19 22:51:00Z INFO MessageListener] Message '1' received from session 'a986642d-0bde-4f76-9489-3713503a6486'.
+[2022-12-19 22:51:00Z INFO Runner] Received job message of length 22210 from service, with hash '73808faccfd50c768e8e1ec7d0e72131106307e678491be86f11867ed453e493'
+[2022-12-19 22:51:00Z INFO JobDispatcher] Job request 1 for plan 56f67802-2169-4c58-b005-b92a9e9978d4 job ca395085-040a-526b-2ce8-bdc85f692774 received.
+[2022-12-19 22:51:00Z INFO JobDispatcher] Pull OrchestrationId 56f67802-2169-4c58-b005-b92a9e9978d4.build.__default from JWT claims
+[2022-12-19 22:51:00Z INFO Terminal] WRITE LINE: 2022-12-19 22:51:00Z: Running job: build
+[2022-12-19 22:51:00Z INFO JobDispatcher] Start renew job request 1 for job ca395085-040a-526b-2ce8-bdc85f692774.
+[2022-12-19 22:51:01Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 2022-12-19 11:01:01 PM
+[2022-12-19 22:51:01Z INFO HostContext] Well known directory 'Bin': 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:01Z INFO ProcessInvokerWrapper] Starting process:
+[2022-12-19 22:51:01Z INFO ProcessInvokerWrapper]   File name: 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin\Runner.Worker.exe'
+[2022-12-19 22:51:01Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 1644 2216'
+[2022-12-19 22:51:01Z INFO ProcessInvokerWrapper]   Working directory: 'D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\bin'
+[2022-12-19 22:51:01Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2022-12-19 22:51:01Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2022-12-19 22:51:01Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2022-12-19 22:51:01Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2022-12-19 22:51:01Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2022-12-19 22:51:01Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2022-12-19 22:51:01Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2022-12-19 22:51:01Z INFO ProcessInvokerWrapper] Process started with process id 5548, waiting for process exit.
+[2022-12-19 22:51:01Z INFO JobDispatcher] Send job request message to worker for job ca395085-040a-526b-2ce8-bdc85f692774.
+[2022-12-19 22:51:01Z INFO ProcessChannel] Sending message of length 22210, with hash '73808faccfd50c768e8e1ec7d0e72131106307e678491be86f11867ed453e493'
+[2022-12-19 22:51:03Z INFO JobNotification] Entering JobStarted Notification
+[2022-12-19 22:51:03Z INFO JobNotification] Entering StartMonitor
+[2022-12-19 22:51:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-12-19 22:51:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2022-12-19 22:51:38Z INFO ProcessInvokerWrapper] Finished process 5548 with exit code 102, and elapsed time 00:00:37.6398687.
+[2022-12-19 22:51:38Z INFO JobDispatcher] Worker finished for job ca395085-040a-526b-2ce8-bdc85f692774. Code: 102
+[2022-12-19 22:51:38Z INFO JobDispatcher] finish job request for job ca395085-040a-526b-2ce8-bdc85f692774 with result: Failed
+[2022-12-19 22:51:38Z INFO Terminal] WRITE LINE: 2022-12-19 22:51:38Z: Job build completed with result: Failed
+[2022-12-19 22:51:38Z INFO JobDispatcher] Stop renew job request for job ca395085-040a-526b-2ce8-bdc85f692774.
+[2022-12-19 22:51:38Z INFO JobDispatcher] job renew has been cancelled, stop renew job request 1.
+[2022-12-19 22:51:38Z INFO JobNotification] Entering JobCompleted Notification
+[2022-12-19 22:51:38Z INFO JobNotification] Entering EndMonitor
+[2022-12-19 23:21:13Z INFO MessageListener] No message retrieved from session 'a986642d-0bde-4f76-9489-3713503a6486' within last 30 minutes.
+[2022-12-19 23:32:08Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\.credentials_rsaparams
+[2022-12-19 23:32:09Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2022-12-19 23:51:25Z INFO MessageListener] No message retrieved from session 'a986642d-0bde-4f76-9489-3713503a6486' within last 30 minutes.
+[2022-12-20 00:21:39Z INFO MessageListener] No message retrieved from session 'a986642d-0bde-4f76-9489-3713503a6486' within last 30 minutes.
+[2022-12-20 00:27:31Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file D:\Projects\vault-guides\ecosystem\vault-github-action\actions-runner\.credentials_rsaparams
+[2022-12-20 00:27:32Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2022-12-20 00:42:20Z INFO Terminal] WRITE LINE: Exiting...
+[2022-12-20 00:42:20Z INFO ConfigurationStore] IsServiceConfigured()
+[2022-12-20 00:42:20Z INFO ConfigurationStore] IsServiceConfigured: False
+[2022-12-20 00:42:20Z INFO HostContext] Runner will be shutdown for UserCancelled
+[2022-12-20 00:42:20Z WARN GitHubActionsService] GET request to https://pipelines.actions.githubusercontent.com/19PO8IgMRJN0tAkCZs61tZDxn1FDDBORupLnITjRF3utpG1JH6/_apis/distributedtask/pools/1/messages?sessionId=a986642d-0bde-4f76-9489-3713503a6486&lastMessageId=1&status=Online has been cancelled.
+[2022-12-20 00:42:20Z INFO MessageListener] Get next message has been cancelled.
+[2022-12-20 00:42:20Z INFO JobDispatcher] Shutting down JobDispatcher. Make sure all WorkerDispatcher has finished.
+[2022-12-20 00:42:20Z INFO JobDispatcher] Ensure WorkerDispather for job ca395085-040a-526b-2ce8-bdc85f692774 run to finish, cancel any running job.
+[2022-12-20 00:42:20Z INFO JobDispatcher] Job request ca395085-040a-526b-2ce8-bdc85f692774 processed succeed.
+[2022-12-20 00:42:21Z INFO Listener] Runner execution been cancelled.

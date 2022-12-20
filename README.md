@@ -24,3 +24,4 @@ Create a Docker image for the application and label it
 ```shell
 $ docker build . --file Dockerfile --build-arg app_secret="SECRET_OVERRIDE" -t vault-action-exampleapp
 ```
+...
